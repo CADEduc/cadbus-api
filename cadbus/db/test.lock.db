@@ -1,0 +1,6 @@
+#FileLock
+#Tue Jun 19 17:30:42 BRT 2018
+hostName=miguel-ThinkPad-Edge-E431
+id=16419be0a45416357d813a411c97ed667b3d3129775
+method=file
+server=127.0.1.1\:33369

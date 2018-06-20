@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import br.com.imd.cadwork.core.localizavel.model.Localizavel;
+import br.com.imd.cadwork.core.service.GoogleService;
 import io.swagger.annotations.ApiModel;
 
 /**
@@ -20,12 +21,6 @@ import io.swagger.annotations.ApiModel;
 @ApiModel
 public class Parada extends Localizavel{
 
-	@Override
-	public boolean validaLocalizavel() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
 	public Parada() {
 		id = new Long(0);
 	}
@@ -67,5 +62,12 @@ public class Parada extends Localizavel{
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	@Override
+	public boolean validaLocalizavel() {
+		return google.validaExistencia(endereco.getLatitude(),
+									   endereco.getLongitude(),									   
+									   GoogleService.PARADA);	
 	}
 }
